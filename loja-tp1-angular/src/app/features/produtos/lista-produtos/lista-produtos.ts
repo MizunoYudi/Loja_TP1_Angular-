@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, signal, computed } from '@angular/core';
 import { Produto } from '../../../model/produto';
 import { CardProduto } from "../card-produto/card-produto";
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-lista-produtos',
@@ -16,7 +17,8 @@ export class ListaProdutos {
       preco: 1200,
       descricao: 'Switch blue',
       imageUrl:'images/logoifsp.png',
-      promo: true
+      //promo: true,
+      estado: 'usado'
     },
     {
       id: 1,
@@ -24,7 +26,8 @@ export class ListaProdutos {
       preco: 1200,
       descricao: 'Switch blue',
       imageUrl:'images/logoifsp.png',
-      promo: true
+      //promo: true,
+      estado: 'esgotado'
     },
     {
       id: 1,
@@ -32,9 +35,17 @@ export class ListaProdutos {
       preco: 1200,
       descricao: 'Switch blue',
       imageUrl:'images/logoifsp.png',
-      promo: true
+      estado: 'novo'
     }
-  ]
+  ];
+
+  apenasPromo = signal(false);
+
+  prodExibidos = computed(() => this.apenasPromo() ? this.produtos.filter(p => p.promo) : this.produtos);
+
+  alternarPromo() {
+    this.apenasPromo.update(p => !p);
+  }
 
   onViewProduct(id: number){
     alert(`id do produto:  ${id}`);

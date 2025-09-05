@@ -15,7 +15,7 @@ export class CardProduto {
   view = output<number>();
   add = output<{ id: number; quantity: number}>();
 
-  qtde = signal(1);
+  qtde = signal(0);
 
   onView() {
     this.view.emit(this.produto().id);
