@@ -1,9 +1,11 @@
 import { Component, input, output, signal } from '@angular/core';
 import { Produto } from '../../../model/produto';
+import { QuantidadeControle } from '../../../shared/quantidade-controle/quantidade-controle';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-card-produto',
-  imports: [],
+  imports: [QuantidadeControle, CurrencyPipe],
   templateUrl: './card-produto.html',
   styleUrl: './card-produto.css'
 })
