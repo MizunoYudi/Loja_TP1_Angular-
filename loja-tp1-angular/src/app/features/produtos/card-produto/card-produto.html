@@ -5,28 +5,52 @@
             <h3 class="titulo">{{ produto().nome }}</h3>
 
             @switch(produto().estado) {
-                @case('novo') {
-                    <span class="selo novo">Novo</span>
-                }
-                @case('esgotado') {
-                    <span class="selo esgotado">Esgotado</span>
-                }
+            @case('novo') {
+            <span class="selo novo">Novo</span>
             }
-            @if(produto().promo) {
-                <span class="selo promo">Aproveite</span>
+            @case('esgotado') {
+            <span class="selo esgotado">Esgotado</span>
+            }
+            }
+            @if(produto().promo && produto().estado != 'esgotado') {
+            <span class="selo promo">Aproveite</span>
             }
         </header>
         <p class="desc">{{ produto().descricao }}</p>
 
-        <div class="linhapreco">
+        <div class="preco-container">
+
+            @if (produto().promo) {
+            <div class="preco-group">
+                <span class="preco original">
+                    {{ produto().preco | currency:'BRL':'symbol': '1.2-2' }}
+                </span>
+                <span class="preco desconto">
+                    {{ produto().preco | desconto:10 | currency:'BRL':'symbol': '1.2-2'}}
+                </span>
+            </div>
+            }
+            @else {
+            <div class="preco-group">
+                <span class="preco">
+                    {{ produto().preco | currency:'BRL':'symbol': '1.2-2' }}
+                </span>
+            </div>
+            }
+            @if(produto().estado != 'esgotado'){
+                <app-quantidade-controle [(contador)]="qtde"></app-quantidade-controle>
+            }
+        </div>
+
+        <!--<div class="linhapreco">
             <span class="preco">{{ produto().preco | currency:'BRL':'symbol': '1.2-2' }}</span>
             <app-quantidade-controle [(contador)]="qtde"></app-quantidade-controle>
-        </div>
+        </div>-->
 
         <div class="acoes">
             <button type="button" class="btn ghost" (click)="onView()">Detalhes</button>
-            @if(qtde() > 0 && produto().estado != "esgotado"){    
-                <button type="button" class="btn primary" (click)="onAdd()">Adicionar</button>
+            @if(qtde() > 0 && produto().estado != "esgotado"){
+            <button type="button" class="btn primary" (click)="onAdd()">Adicionar</button>
             }
         </div>
     </div>

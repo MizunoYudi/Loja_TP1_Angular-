@@ -1,5 +1,5 @@
 .catalogo {
-    max-width: 100px;
+    max-width: 1000px;
     margin: 24px auto;
     padding: 0 16px;
 }
@@ -19,7 +19,7 @@
 .barradetarefas {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     margin: 0 0 12px 0;
 }
 

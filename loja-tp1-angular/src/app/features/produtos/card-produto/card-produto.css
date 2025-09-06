@@ -47,6 +47,7 @@
 .preco {
     font-weight: 700;
     color: #111827;
+    margin: 0 8px 0 0;
 }
 
 .preco-container {
