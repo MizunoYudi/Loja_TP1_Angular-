@@ -7,6 +7,7 @@
     border-radius: 12px;
     background: #fff;
     height: 180px;
+    width: 380px;
 }
 
 .card.promo {
@@ -47,7 +48,7 @@
 .preco {
     font-weight: 700;
     color: #111827;
-    margin: 0 8px 0 0;
+    margin-right: 8px;
 }
 
 .preco-container {

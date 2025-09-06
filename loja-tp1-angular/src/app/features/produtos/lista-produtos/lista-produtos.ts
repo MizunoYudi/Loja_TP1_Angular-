@@ -36,6 +36,14 @@ export class ListaProdutos {
       descricao: 'Switch blue',
       imageUrl:'images/logoifsp.png',
       estado: 'novo'
+    },
+    {
+      id: 1,
+      nome: 'Teclado numerico',
+      preco: 1200,
+      descricao: 'Switch blue',
+      imageUrl:'images/logoifsp.png',
+      estado: 'novo'
     }
   ];
 
