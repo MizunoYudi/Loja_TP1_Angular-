@@ -12,35 +12,39 @@ export class ProdutoService {
   private readonly listaMock: Produto[] = [
     {
       id: 1,
-      nome: 'Teclado numerico',
-      preco: 1200,
-      descricao: 'Switch bluejsfdjioçfsdjisfdjiofdsjiosfdjiosfdjiosfd',
+      nome: 'Teclado Mecânico Azzo',
+      preco: 560,
+      descricao: 'Switch Azul',
       imageUrl: 'images/logoifsp.png',
+      categoria: "eletronico",
       //promo: true,
       estado: 'usado'
     },
     {
-      id: 1,
-      nome: 'Teclado numerico',
-      preco: 1200,
-      descricao: 'Switch blue',
+      id: 2,
+      nome: 'Headset 5.1',
+      preco: 167,
+      descricao: 'Headset surround qualidade',
       imageUrl: 'images/logoifsp.png',
+      categoria: "eletronico",
       //promo: true,
       estado: 'esgotado'
     },
     {
-      id: 1,
-      nome: 'Teclado numerico',
-      preco: 1200,
-      descricao: 'Switch blue',
+      id: 3,
+      nome: 'Panela Inox',
+      preco: 300,
+      descricao: 'Panela de aço inox',
       imageUrl: 'images/logoifsp.png',
+      categoria: "cozinha",
       estado: 'novo'
     },
     {
-      id: 1,
-      nome: 'Teclado numerico',
-      preco: 1200,
+      id: 4,
+      nome: 'Luva',
+      preco: 10,
       descricao: 'Switch blue',
+      categoria: 'Luva de borracha',
       imageUrl: 'images/logoifsp.png',
       estado: 'novo'
     }
