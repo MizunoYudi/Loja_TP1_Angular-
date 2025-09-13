@@ -46,3 +46,13 @@
     padding: 16px;
     text-align: center;
 }
+
+.filtros {
+    display: inline-flex;
+    width: 250px;
+    justify-content: space-between;
+}
+
+.categorias {
+    border-radius: 8px;
+}

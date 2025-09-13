@@ -1,14 +1,21 @@
 <section class="catalogo">
     <header class="barradetarefas">
         <h2>Catalogo</h2>
-        <button type="button" class="btn sopromo" [class.active]="apenasPromo()" (click)="alternarPromo()">
-            @if(apenasPromo()){
-            Mostrar Todos
-            }
-            @else {
-            Somente Promoções
-            }
-        </button>
+        <div class="filtros">
+            <select class="categorias" name="categorias" id="categorias">
+                <option value="vazio">Vazio</option>
+                <option value="eletronico">Eletrônicos</option>
+                <option value="cozinha">Cozinha</option>
+            </select>
+            <button type="button" class="btn sopromo" [class.active]="apenasPromo()" (click)="alternarPromo()">
+                @if(apenasPromo()){
+                Mostrar Todos
+                }
+                @else {
+                Somente Promoções
+                }
+            </button>
+        </div>
     </header>
 
     <div class="grid">
