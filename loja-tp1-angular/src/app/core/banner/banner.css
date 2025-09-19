@@ -2,6 +2,8 @@
     background: url('../../../../public/images/campus.jpg');
     width: 100vw;
     height: 200px;
+    padding: 0px;
+    margin: 0px;
     background-position: center;
     background-size: cover;
 }
