@@ -1,5 +1,6 @@
 .catalogo{
     max-width: 1000px;
+    min-width: 800px;
     margin: 24px auto;
     padding: 0 16px;
 }

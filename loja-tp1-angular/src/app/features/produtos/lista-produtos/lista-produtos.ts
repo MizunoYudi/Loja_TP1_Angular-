@@ -4,6 +4,7 @@ import { CardProduto } from "../card-produto/card-produto";
 import { filter } from 'rxjs';
 import { ProdutoService } from '../services/produto.service';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-produtos',
@@ -13,6 +14,8 @@ import { toSignal } from '@angular/core/rxjs-interop';
 })
 export class ListaProdutos {
   private produtoService = inject(ProdutoService);
+  private router = inject(Router);
+
   private produtos = toSignal<Produto[],Produto[]>(
     this.produtoService.listar(),
     {initialValue: []}
@@ -29,7 +32,7 @@ export class ListaProdutos {
   }
 
   onViewProduct(id: number){
-    alert(`id do produto:  ${id}`);
+    this.router.navigate(['/produtos', id]);
   }
 
   onAddToCart(produto: { id: number; quantity: number}) {
