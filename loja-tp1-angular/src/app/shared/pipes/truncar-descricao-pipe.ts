@@ -6,13 +6,21 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class TruncarDescricaoPipe implements PipeTransform {
 
-  transform(descricao: string){
-    let desc;
-    
-    if(descricao.length > 20){
-      return descricao.substring(0, 20) + "...";
-    }
-    return desc;
-  }
+  transform(
+    valor: string | null | undefined,
+    max = 100,
+    limite = true,
+    etc = '…'
+  ): string {
+    if (!valor) return '';
+    if (valor.length <= max)
+      return valor;
 
+    const parte = valor.slice(0, max);
+    if (!limite)
+      return parte + etc;
+
+    const espFinal = parte.lastIndexOf(' ');
+    return (espFinal > 0 ? parte.slice(0, espFinal) : parte) + etc;
+  }
 }
