@@ -1,57 +1,26 @@
 import { inject, Injectable } from '@angular/core';
 import { LoggerService } from '../../../core/services/logger/logger.service';
-import { Produto } from '../../../model/produto';
-import { delay, Observable, of } from 'rxjs';
+import { Produto, ProdutoMapper } from '../../../model/produto';
+import { catchError, delay, map, Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProdutoService {
   logger = inject(LoggerService);
-
-  private readonly listaMock: Produto[] = [
-    {
-      id: 1,
-      nome: 'Teclado numerico',
-      preco: 1200,
-      descricao: 'Switch bluejsfdjioçfsdjisfdjiofdsjiosfdjiosfdjiosfd',
-      imageUrl: 'images/logoifsp.png',
-      //promo: true,
-      estado: 'usado'
-    },
-    {
-      id: 1,
-      nome: 'Teclado numerico',
-      preco: 1200,
-      descricao: 'Switch blue',
-      imageUrl: 'images/logoifsp.png',
-      //promo: true,
-      estado: 'esgotado'
-    },
-    {
-      id: 1,
-      nome: 'Teclado numerico',
-      preco: 1200,
-      descricao: 'Switch blue',
-      imageUrl: 'images/logoifsp.png',
-      estado: 'novo'
-    },
-    {
-      id: 1,
-      nome: 'Teclado numerico',
-      preco: 1200,
-      descricao: 'Switch blue',
-      imageUrl: 'images/logoifsp.png',
-      estado: 'novo'
-    }
-  ];
+  client = inject(HttpClient);
 
   listar(): Observable<Produto[]> {
     this.logger.info("ProdutoService - Listando produtos");
-    return of(this.listaMock).pipe(delay(1000));
+    return this.client.get<any[]>('https://fakestoreapi.com/products').pipe(
+      map(lista => lista.map((json) => ProdutoMapper.fromJson(json))),
+      catchError(err => of([]))
+    );
   }
 
   getById(id: number): Observable<Produto | undefined>{
-    return of(this.listaMock.find(p => p.id = id)).pipe(delay(500));
+    return of(); //Exercicio -> 
+    //this.listaMock.find(p => p.id = id)).pipe(delay(500)
   }
 }
