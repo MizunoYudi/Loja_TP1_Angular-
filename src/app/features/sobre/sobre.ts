@@ -1,9 +1,9 @@
 import { Component, inject } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sobre',
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './sobre.html',
   styleUrl: './sobre.css'
 })
