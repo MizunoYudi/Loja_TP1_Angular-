@@ -1,8 +1,8 @@
-name: Deploy da Versão de Produção no Vercel
+elname: Deploy da Versão de Produção no Vercel
 
 env:
-  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  VERCEL_ORG_ID: ${{ secrets.vercel_org_id }}
+  VERCEL_PROJECT_ID: ${{ secrets.project_id }}
 
 on:
   push:
@@ -25,7 +25,7 @@ jobs:
         run: npm install --global vercel@latest
 
       - name: Buildando artefatos projeto
-        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel build --prod --token=${{ secrets.vercel_token }}
 
       - name: Deploy Project Artifacts to Vercel
-        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.vercel_token }}
