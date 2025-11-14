@@ -1,4 +1,4 @@
-elname: Deploy da Versão de Produção no Vercel
+name: Deploy da Versão de Produção no Vercel
 
 env:
   VERCEL_ORG_ID: ${{ secrets.vercel_org_id }}
