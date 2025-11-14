@@ -20,7 +20,7 @@ jobs:
         run: npm install
 
       - name: Buildando o site em modo de produção
-        run: ng build
+        run: npm run build
 
       - name: Instalar o CLI vercel
         run: npm install --global vercel@latest
