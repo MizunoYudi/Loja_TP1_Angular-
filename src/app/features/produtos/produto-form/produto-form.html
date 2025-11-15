@@ -4,7 +4,7 @@
         <div class="campo">
             <label for="nome">Nome:</label>
             <input type="text" name="nome" id="nome" [(ngModel)]="novoProduto.nome" required minlength="3">
-            <small class="erro" [hidden]="!(formulario.controls['nome'].dirty && formulario.controls['nome'].invalid)">
+            <small class="erro" [hidden]="!(formulario.controls['nome']?.dirty && formulario.controls['nome'].invalid)">
                 O nome deve conter pelo menos 3 letras
             </small>
             <!-- Validado apenas na submissão 
@@ -14,7 +14,7 @@
         <div class="campo">
             <label for="preco">preco:</label>
             <input type="number" name="preco" id="preco" [(ngModel)]="novoProduto.preco" required min="0">
-            @if(formulario.controls['preco'].dirty && formulario.controls['preco'].invalid){
+            @if(formulario.controls['preco']?.dirty && formulario.controls['preco'].invalid){
             <small class="erro">Informe preço valido</small>
             }
             <!-- Validado apenas na submissão 
@@ -24,7 +24,7 @@
         <div class="campo">
             <label for="descricao">descricao:</label>
             <input type="textarea" name="descricao" id="descricao" [(ngModel)]="novoProduto.descricao" required>
-            @if(formulario.controls['descricao'].dirty && formulario.controls['descricao'].invalid){
+            @if(formulario.controls['descricao']?.dirty && formulario.controls['descricao'].invalid){
             <small class="erro">Informe uma descrição</small>
             }
             <!-- Validado apenas na submissão 
@@ -39,7 +39,7 @@
                 <option [value]="categoria">{{ categoria }}</option>
                 }
             </select>
-            @if(formulario.controls['categoria'].dirty && formulario.controls['categoria'].invalid){
+            @if(formulario.controls['categoria']?.dirty && formulario.controls['categoria'].invalid){
             <small class="erro">Selecione uma cartegoria</small>
             }
         </div>
@@ -51,7 +51,7 @@
                 placeholder="Digite a nova categoria">
             @if(
             mostrarNovaCategoria() &&
-            formulario.controls['novaCategoria'].dirty &&
+            formulario.controls['novaCategoria']?.dirty &&
             novaCategoria().trim.length == 0
             ){
             <small class="error">Digite a nova categoria</small>
@@ -62,7 +62,7 @@
         <div class="campo">
             <label for="imgURL">URL da imagem</label>
             <input type="text" name="imageURL" id="imageURL" [(ngModel)]="novoProduto.imageUrl" required>
-            @if(formulario.controls['imageURL'].dirty && formulario.controls['imageURL'].invalid){
+            @if(formulario.controls['imageURL']?.dirty && formulario.controls['imageURL'].invalid){
             <small>Informe a url da imagem</small>
             }
         </div>
