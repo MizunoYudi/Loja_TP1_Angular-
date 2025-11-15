@@ -41,4 +41,8 @@ export class ListaProdutos {
   onAddToCart(produto: { id: number; quantity: number}) {
     alert(`Carrinho ainda não implementado. Quantidade: ${produto.quantity}`);
   }
+
+  onCreateProduct(rota: String){
+    this.router.navigate([rota]);
+  }
 }

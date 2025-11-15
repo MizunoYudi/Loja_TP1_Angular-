@@ -1,14 +1,17 @@
 <section class="catalogo">
     <header class="barradetarefas">
         <h2>Catalogo</h2>
-        <button type="button" class="btn sopromo" [class.active]="apenasPromo()" (click)="alternarPromo()">
-            @if(apenasPromo()){
-            Mostrar Todos
-            }
-            @else {
-            Somente Promoções
-            }
-        </button>
+        <div class="acoes-header">
+            <button type="button" class="btn sopromo" [class.ativo]="apenasPromo()" (click)="alternarPromo()">
+                @if(apenasPromo()){
+                Mostrar Todos
+                }
+                @else {
+                Somente Promoções
+                }
+            </button>
+            <button type="button" class="btn primary" (click)="onCreateProduct('/produtos/novo')">+ Novo Produto</button>
+        </div>
     </header>
 
     @if(loading()){
